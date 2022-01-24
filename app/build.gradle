@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.buildvariant_android"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "demo"
+
+    productFlavors {
+
+        production {
+            versionCode 12
+            versionName "1.0.0.12"
+            buildConfigField 'String', 'BUILDTYPE', '"PRODUCTION"'
+            buildConfigField 'String', 'SERVER_IP', '"201.201.201.201"'
+        }
+        uat {
+            versionCode 1
+            versionName "1.0.0.0"
+            buildConfigField 'String', 'BUILDTYPE', '"UAT"'
+            buildConfigField 'String', 'SERVER_IP', '"201.201.201.201"'
+        }
+        development {
+            versionCode 1
+            versionName "1.0.0.0"
+            buildConfigField 'String', 'BUILDTYPE', '"DEVELOPMENT"'
+            buildConfigField 'String', 'SERVER_IP', '"201.201.201.201"'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
