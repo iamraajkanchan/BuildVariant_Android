@@ -6,20 +6,22 @@ import android.util.Log
 
 class MainActivity : AppCompatActivity()
 {
-    companion object {
+    companion object
+    {
         const val TAG = "MainActivity"
     }
+
     override fun onCreate(savedInstanceState : Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        test()
+        getBuildVariantDetail()
     }
 
-    private fun test()
+    private fun getBuildVariantDetail()
     {
         val data = BuildConfig.VERSION_NAME
-        Log.d(TAG, data)
+        Log.d(TAG , data)
     }
 }
