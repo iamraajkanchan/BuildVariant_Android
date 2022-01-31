@@ -1,0 +1,35 @@
+[1mdiff --git a/app/src/main/java/com/example/buildvariant_android/MainActivity.kt b/app/src/main/java/com/example/buildvariant_android/MainActivity.kt[m
+[1mindex 94d6f9e..b13ca40 100644[m
+[1m--- a/app/src/main/java/com/example/buildvariant_android/MainActivity.kt[m
+[1m+++ b/app/src/main/java/com/example/buildvariant_android/MainActivity.kt[m
+[36m@@ -4,24 +4,20 @@[m [mimport androidx.appcompat.app.AppCompatActivity[m
+ import android.os.Bundle[m
+ import android.util.Log[m
+ [m
+[31m-class MainActivity : AppCompatActivity()[m
+[31m-{[m
+[31m-    companion object[m
+[31m-    {[m
+[32m+[m[32mclass MainActivity : AppCompatActivity() {[m
+[32m+[m[32m    companion object {[m
+         const val TAG = "MainActivity"[m
+     }[m
+ [m
+[31m-    override fun onCreate(savedInstanceState : Bundle?)[m
+[31m-    {[m
+[32m+[m[32m    override fun onCreate(savedInstanceState: Bundle?) {[m
+         super.onCreate(savedInstanceState)[m
+         setContentView(R.layout.activity_main)[m
+ [m
+         getBuildVariantDetail()[m
+     }[m
+ [m
+[31m-    private fun getBuildVariantDetail()[m
+[31m-    {[m
+[32m+[m[32m    private fun getBuildVariantDetail() {[m
+         val data = BuildConfig.VERSION_NAME[m
+[31m-        Log.d(TAG , data)[m
+[32m+[m[32m        Log.d(TAG, "Build Version $data")[m
+     }[m
+ }[m
+\ No newline at end of file[m
